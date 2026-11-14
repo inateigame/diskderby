@@ -152,7 +152,7 @@ footer{color:var(--dim);font-size:12px;text-align:center}
         <div class="row"><button class="btn" id="buy" type="button">購入する</button></div>
         <p class="msg" id="msg"></p>
         <div class="slip" id="slip"></div>
-        <div class="row"><button class="btn go" id="start" type="button">発走！</button><button class="btn sm" id="rebuy" type="button" hidden>フロッピーをもう1箱買う（+10,000枚）</button></div>
+        <div class="row"><button class="btn go" id="start" type="button">発走！</button><button class="btn sm" id="rebuy" type="button" hidden>資金を借り入れる（+10,000枚）</button></div>
       </div>
     </section>
   </div>
@@ -342,7 +342,7 @@ $('#buy').addEventListener('click',()=>{
 });
 $('#slip').addEventListener('click',e=>{ const b=e.target.closest('[data-cancel]'); if(!b) return;
   const bet=S.bets.splice(+b.dataset.cancel,1)[0]; S.coins+=bet.amt; $('#msg').textContent='馬券を取り消しました。'; save(); renderHead(); renderBet(); });
-$('#rebuy').addEventListener('click',()=>{ S.coins+=10000; $('#msg').textContent='フロッピーを1箱買ったら、おまけで10,000枚ついてきました。'; save(); renderHead(); renderBet(); });
+$('#rebuy').addEventListener('click',()=>{ S.coins+=10000; $('#msg').textContent='資金を借り入れて、10,000枚を受け取りました。'; save(); renderHead(); renderBet(); });
 
 /* ---------- 音 ---------- */
 let AC=null, soundOn=false;
